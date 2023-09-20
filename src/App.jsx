@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import './App.css'
 import './sass/editor.scss'
 import Editor from './components/Editors/Editor'
 

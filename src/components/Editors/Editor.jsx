@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 
 import BasicInfo from './BasicInfo';
 import ContactInfo from './ContactInfo';
+import EducationInfo from './EducationInfo';
+
 
 
 function Editor(props) {
@@ -33,6 +35,8 @@ function Editor(props) {
 
       <BasicInfo data={formData.basicInfo} handleChange={handleBasicInfoChanges} />
       <ContactInfo data={formData.contactInfo} handleChange={handleContactInfoChanges} />
+      <EducationInfo data={formData.educationInfo} />
+      
       
 
       

@@ -4,11 +4,11 @@ function ContactInfo(props){
     return (
         <form className="form form__container form__contact-info">
             <h1 className="form-title">Contact Info</h1>
-        <fieldset className="form-fieldset form__basic-info">
+        <fieldset className="form-fieldset form__contact-info">
           <label className="form-label">
             <span className="form-label__title">Email:</span>
             <input
-              type="text"
+              type="email"
               name="email"
               className="form-input form-input__email"
               placeholder="davisleevtobi@gmail.com"

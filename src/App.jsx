@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import './App.css'
 import './sass/editor.scss'
 import Editor from './components/Editors/Editor'
 
@@ -30,6 +29,9 @@ function App() {
   useEffect(() => {
     localStorage.setItem('cvFormData', JSON.stringify(formData));
   }, [formData]);
+
+
+  console.log(formData)
 
 
   const handleBasicInfoChanges = (e) => {

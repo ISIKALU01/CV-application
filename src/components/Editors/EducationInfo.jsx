@@ -16,15 +16,25 @@ function EducationInfo(props){
         currentInfoItem: '',
       };
     
-      const [educInfo, setEducInfo] = useState(
-        JSON.parse(localStorage.getItem('cvEducationInfo')) || emptyState,
-      );
+    const [educInfo, setEducInfo] = useState(
+      JSON.parse(localStorage.getItem('cvEducationInfo')) || emptyState,
+    );
 
     console.log(data.length)
 
     useEffect(() => {
         localStorage.setItem('cvEducationInfo', JSON.stringify(educInfo));
       }, [educInfo]);
+
+    const handleChange = (e) => {
+      const { name, value, type, checked} = e.target;
+      console.log(name, value, type, checked)
+    
+      setEducInfo((prevInfo) => ({
+        ...prevInfo,
+        [name]: type === 'checkbox' ? checked : value,
+      }));
+    };
 
     return (
         <form 
@@ -40,7 +50,9 @@ function EducationInfo(props){
                 type="text"
                 name="institution"
                 className="form-input form-input__education-institution"
-                placeholder="University of London"
+                placeholder="University"
+                value={educInfo.institution}
+                onChange={handleChange}
                 required
               />
             </label>
@@ -51,6 +63,8 @@ function EducationInfo(props){
                 name="degreeProgram"
                 className="form-input form-input__degree-program"
                 placeholder="Ph.D in Philosophy"
+                value={educInfo.degreeProgram}
+                onChange={handleChange}
                 required
               />
             </label>
@@ -61,6 +75,8 @@ function EducationInfo(props){
                 name="startingYear"
                 className="form-input form-input__starting-year"
                 min="1900-01"
+                value={educInfo.startingYear}
+                onChange={handleChange}
                 required
               />
             </label>
@@ -72,6 +88,8 @@ function EducationInfo(props){
                   type="checkbox"
                   name="onGoing"
                   id="ongoingSwitchEduc"
+                  onChange={handleChange}
+                  checked={educInfo.onGoing}
                 />
                 <label
                   aria-hidden="true"
@@ -91,6 +109,8 @@ function EducationInfo(props){
                   name="graduatingYear"
                   className="form-input form-input__graduating-year"
                   min="1900-01"
+                  value={educInfo.graduatingYear || '2014-10'}
+                  onChange={handleChange}
                 />
               </label>
             )}
@@ -101,6 +121,8 @@ function EducationInfo(props){
                 name="gpa"
                 className="form-input form-input__gpa"
                 placeholder="3.9/4.0"
+                value={educInfo.gpa}
+                onChange={handleChange}
               />
             </label>
     
@@ -116,11 +138,10 @@ function EducationInfo(props){
                   name="currentInfoItem"
                   className="form-input form-input__addl-info-item form-input__items"
                   placeholder="Press enter to submit an item..."
+                  value={educInfo.currentInfoItem}
+                  onChange={handleChange}
                 />
-                <button
-                  type="button"
-                  className="btn btn__submit-item material-symbols-outlined"
-                >
+                <button type="button" className="btn btn__submit-item material-symbols-outlined">
                   add
                 </button>
               </div>

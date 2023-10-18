@@ -141,9 +141,9 @@ function EducationInfo(props){
                   value={educInfo.currentInfoItem}
                   onChange={handleChange}
                 />
-                <button type="button" className="btn btn__submit-item material-symbols-outlined">
-                  add
-                </button>
+                <button type="button" className="btn btn__submit-item">
+                  <span className="btn__submit-font">+</span>
+              </button>
               </div>
             </label>
           </fieldset>

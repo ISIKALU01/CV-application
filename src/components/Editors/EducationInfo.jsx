@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 
 
 function EducationInfo(props){
-    const {data} = props
+    const {data, handleSubmit} = props
+    const infoType = 'educationInfo';
 
     const emptyState = {
         institution: '',
@@ -26,6 +27,8 @@ function EducationInfo(props){
         localStorage.setItem('cvEducationInfo', JSON.stringify(educInfo));
       }, [educInfo]);
 
+
+      
     const handleChange = (e) => {
       const { name, value, type, checked} = e.target;
       console.log(name, value, type, checked)
@@ -36,9 +39,21 @@ function EducationInfo(props){
       }));
     };
 
+  
+    const submitEducInfo = (e) => {
+      e.preventDefault();
+  
+      // Submit local state to app state
+      handleSubmit(e, infoType);
+  
+      // Set local state to empty
+      setEducInfo(emptyState);
+    };
+
     return (
         <form 
-          className="form form__container form__education-info">
+          className="form form__container form__education-info"
+          onSubmit={submitEducInfo}>
           <h1 className="form-title">Education Background</h1>
 
           <fieldset className="form-fieldset form__education-info">

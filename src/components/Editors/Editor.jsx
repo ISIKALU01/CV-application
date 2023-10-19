@@ -35,10 +35,7 @@ function Editor(props) {
 
       <BasicInfo data={formData.basicInfo} handleChange={handleBasicInfoChanges} />
       <ContactInfo data={formData.contactInfo} handleChange={handleContactInfoChanges} />
-      <EducationInfo data={formData.educationInfo} />
-      
-      
-
+      <EducationInfo data={formData.educationInfo} handleSubmit={submitBackgroundInfo} />
       
     </div>
   );

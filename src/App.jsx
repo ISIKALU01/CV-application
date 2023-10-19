@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import './sass/editor.scss'
 import './sass/components.scss'
 import Editor from './components/Editors/Editor'
+import { v4 as uuidv4 } from 'uuid';
+
 
 function App() {
 
@@ -58,12 +60,42 @@ function App() {
   }
 
 
+  
+  const submitBackgroundInfo = (e, type) => {
+    e.preventDefault();
+
+    const parentEl = e.target.closest('form');
+    console.log(parentEl)
+
+    const newInfo = [...parentEl.querySelectorAll('input')]
+      .map((field) => ({
+        [field.name]: field.value,
+      }))
+      .reduce((obj, item) => Object.assign(obj, { ...item }));
+
+    console.log(newInfo)
+
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [type]: [...prevFormData[type],
+        {
+          ...newInfo,
+          id: uuidv4(),
+          additionalInfo: '',
+          currentInfoItem: '',
+        },
+      ],
+    }));
+  };
+
+
   return (
     <>
     <Editor 
     formData={formData} 
     handleBasicInfoChanges={handleBasicInfoChanges}
     handleContactInfoChanges={handleContactInfoChanges}
+    submitBackgroundInfo={submitBackgroundInfo}
     />
     </>
   )

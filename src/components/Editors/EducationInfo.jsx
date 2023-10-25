@@ -1,4 +1,8 @@
 import { useEffect, useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
+
+import ItemBanner from './ItemBanner';
+
 
 
 function EducationInfo(props){
@@ -50,10 +54,61 @@ function EducationInfo(props){
       setEducInfo(emptyState);
     };
 
+
+
+    const submitAddlInfo = (e) => {
+      let infoContent;
+  
+      if (e.type === 'keydown' && e.key !== 'Enter') return;
+      if (e.type === 'click') {
+        infoContent = e.target.previousElementSibling.value;
+      } else if (e.key === 'Enter') infoContent = e.target.value;
+  
+      if (!infoContent) return;
+
+      console.log(infoContent)
+      console.log(educInfo)
+  
+  
+      setEducInfo((prevInfo) => ({
+        ...prevInfo,
+        additionalInfo: [
+          ...prevInfo.additionalInfo,
+          {
+            id: uuidv4(),
+            content: infoContent,
+          },
+        ],
+        currentInfoItem: '',
+      }));
+    };
+
+    const deleteAddlInfo = (id) => {
+      setEducInfo((prevInfo) => ({
+        ...prevInfo,
+        additionalInfo: prevInfo.additionalInfo.filter((item) => item.id !== id),
+      }));
+    };
+
+
+    const addlInfoMarkup = educInfo.additionalInfo.map((item) => (
+      <ItemBanner
+        key={item.id}
+        id={item.id}
+        name={item.content}
+        deleteItem={deleteAddlInfo}
+      />
+    ));
+
+
+
     return (
         <form 
           className="form form__container form__education-info"
-          onSubmit={submitEducInfo}>
+          onSubmit={submitEducInfo}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') e.preventDefault();
+          }}>
           <h1 className="form-title">Education Background</h1>
 
           <fieldset className="form-fieldset form__education-info">
@@ -145,6 +200,10 @@ function EducationInfo(props){
               <span className="form-label__title">
                 Additional info (ex. awards, courses, thesis project)
               </span>
+
+              <div className="submitted-item__container">
+                 {educInfo.additionalInfo.length ? addlInfoMarkup : ''}
+              </div>
     
     
               <div className="form-input__items-wrapper">
@@ -155,8 +214,9 @@ function EducationInfo(props){
                   placeholder="Press enter to submit an item..."
                   value={educInfo.currentInfoItem}
                   onChange={handleChange}
+                  onKeyDown={submitAddlInfo}
                 />
-                <button type="button" className="btn btn__submit-item">
+                <button type="button" className="btn btn__submit-item" onClick={submitAddlInfo}>
                   <span className="btn__submit-font">+</span>
               </button>
               </div>

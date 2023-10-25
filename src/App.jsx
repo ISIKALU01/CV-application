@@ -75,13 +75,17 @@ function App() {
 
     console.log(newInfo)
 
+    const addlInfo = [
+      ...parentEl.querySelectorAll('.submitted-item__name'),
+    ].map((el) => ({ id: el.dataset.id, content: el.textContent }));
+
     setFormData((prevFormData) => ({
       ...prevFormData,
       [type]: [...prevFormData[type],
         {
           ...newInfo,
           id: uuidv4(),
-          additionalInfo: '',
+          additionalInfo: addlInfo,
           currentInfoItem: '',
         },
       ],

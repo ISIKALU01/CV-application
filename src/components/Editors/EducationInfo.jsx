@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
 import ItemBanner from './ItemBanner';
+import FormBanner from "./FormBanner";
 
 
 
 function EducationInfo(props){
-    const {data, handleSubmit} = props
+    const {data, handleSubmit, deleteEducInfo} = props
     const infoType = 'educationInfo';
 
     const emptyState = {
@@ -46,12 +47,21 @@ function EducationInfo(props){
   
     const submitEducInfo = (e) => {
       e.preventDefault();
-  
+
       // Submit local state to app state
       handleSubmit(e, infoType);
   
       // Set local state to empty
       setEducInfo(emptyState);
+    };
+
+
+
+    const editEducInfo = (id) => {
+      // Show warning
+      deleteEducInfo(id, infoType);
+  
+      setEducInfo(data.find((item) => item.id === id));
     };
 
 
@@ -90,6 +100,18 @@ function EducationInfo(props){
       }));
     };
 
+    const submittedInfoMarkup = data.map((addedInfo) => (
+      <FormBanner
+        key={addedInfo.id}
+        id={addedInfo.id}
+        handleDelete={deleteEducInfo}
+        handleEdit={editEducInfo}
+        mainText={addedInfo.institution}
+        subText={addedInfo.degreeProgram}
+        type={infoType}
+      />
+    ));
+
 
     const addlInfoMarkup = educInfo.additionalInfo.map((item) => (
       <ItemBanner
@@ -110,6 +132,11 @@ function EducationInfo(props){
             if (e.key === 'Enter') e.preventDefault();
           }}>
           <h1 className="form-title">Education Background</h1>
+
+          {data.length ? (
+            <div className="form-banner__container">{submittedInfoMarkup}</div>
+          ) : ('')}
+
 
           <fieldset className="form-fieldset form__education-info">
             <label className="form-label">
@@ -216,9 +243,11 @@ function EducationInfo(props){
                   onChange={handleChange}
                   onKeyDown={submitAddlInfo}
                 />
-                <button type="button" className="btn btn__submit-item" onClick={submitAddlInfo}>
-                  <span className="btn__submit-font">+</span>
-              </button>
+                <button type="button" 
+                className="btn btn__submit-item material-symbols-outlined" 
+                onClick={submitAddlInfo}>
+                  add
+                </button>
               </div>
             </label>
           </fieldset>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './sass/editor.scss'
 import './sass/components.scss'
+import './sass/banners.scss'
 import Editor from './components/Editors/Editor'
 import { v4 as uuidv4 } from 'uuid';
 
@@ -92,6 +93,12 @@ function App() {
     }));
   };
 
+  const deleteBackgroundInfo = (id, type) => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [type]: prevFormData[type].filter((item) => item.id !== id),
+    }));
+  };
 
   return (
     <>
@@ -100,6 +107,7 @@ function App() {
     handleBasicInfoChanges={handleBasicInfoChanges}
     handleContactInfoChanges={handleContactInfoChanges}
     submitBackgroundInfo={submitBackgroundInfo}
+    deleteBackgroundInfo={deleteBackgroundInfo}
     />
     </>
   )

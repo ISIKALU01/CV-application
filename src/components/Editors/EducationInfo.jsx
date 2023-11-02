@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
+import AddIcon from '@mui/icons-material/Add';
+
 import ItemBanner from './ItemBanner';
 import FormBanner from "./FormBanner";
+
 
 
 
@@ -243,11 +246,10 @@ function EducationInfo(props){
                   onChange={handleChange}
                   onKeyDown={submitAddlInfo}
                 />
-                <button type="button" 
-                className="btn btn__submit-item material-symbols-outlined" 
+                <button type="button" className="btn btn__submit-item" 
                 onClick={submitAddlInfo}>
-                  add
-                </button>
+                    <AddIcon />
+                </button>  
               </div>
             </label>
           </fieldset>

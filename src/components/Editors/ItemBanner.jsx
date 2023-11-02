@@ -1,3 +1,5 @@
+import CloseIcon from '@mui/icons-material/Close';
+
 function ItemBanner(props) {
     const { id, name, deleteItem } = props;
   
@@ -7,11 +9,11 @@ function ItemBanner(props) {
           {name}
         </span>
         <button
-          className="submitted-item__delete btn-icon material-symbols-outlined"
+          className="btn submitted-item__delete btn-icon"
           type="button"
           onMouseDown={() => deleteItem(id)}
         >
-          close
+          <CloseIcon />
         </button>
       </div>
     );

@@ -1,3 +1,6 @@
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+
 function FormBanner(props) {
     const { type, handleDelete, handleEdit, mainText, subText, id } = props;
   
@@ -14,14 +17,14 @@ function FormBanner(props) {
             className="btn btn__edit-item"
             onClick={() => handleEdit(id)}
           >
-            <span className="btn-icon material-symbols-outlined">edit</span>
+            <EditIcon />
           </button>
           <button
             type="button"
             className="btn btn__delete-item"
             onClick={() => handleDelete(id, type)}
           >
-            <span className="btn-icon material-symbols-outlined">delete</span>
+            <DeleteIcon />
           </button>
         </div>
       </div>

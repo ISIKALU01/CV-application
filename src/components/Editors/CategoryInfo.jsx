@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { v4 as uuidv4 } from 'uuid';
 
+import AddIcon from '@mui/icons-material/Add';
 import FormBanner from './FormBanner';
 import ItemBanner from './ItemBanner';
 
@@ -168,10 +169,10 @@ function CategoryInfo(props) {
                 />
                 <button
                   type="button"
-                  className="btn btn__submit-item material-symbols-outlined"
+                  className="btn btn__submit-item"
                   onClick={submitItem}
                 >
-                  add
+                  <AddIcon />
                 </button>
               </div>
             </div>

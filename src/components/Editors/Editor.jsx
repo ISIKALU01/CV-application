@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 
 import BasicInfo from './BasicInfo';
+import CategoryInfo from './CategoryInfo';
 import ContactInfo from './ContactInfo';
 import EducationInfo from './EducationInfo';
+import ExperienceInfo from './ExperienceInfo';
 
 
 
@@ -30,17 +32,44 @@ function Editor(props) {
         <a className="header-github" href="" rel="noopener noreferrer">
           Check out the Github repo for this project here
         </a>
-
       </header>
 
-      <BasicInfo data={formData.basicInfo} handleChange={handleBasicInfoChanges} />
-      <ContactInfo data={formData.contactInfo} handleChange={handleContactInfoChanges} />
+      <BasicInfo 
+          data={formData.basicInfo} 
+          handleChange={handleBasicInfoChanges} 
+      />
+
+      <ContactInfo 
+          data={formData.contactInfo} 
+          handleChange={handleContactInfoChanges} 
+      />
+
       <EducationInfo 
          data={formData.educationInfo} 
          handleSubmit={submitBackgroundInfo} 
          deleteEducInfo={deleteBackgroundInfo} 
-      />
-      
+       />
+
+      <ExperienceInfo
+         data={formData.experienceInfo}
+         handleSubmit={submitBackgroundInfo} 
+         deleteEducInfo={deleteBackgroundInfo}
+       />
+
+      <CategoryInfo
+         data={formData.skillsInfo}
+         handleSubmit={submitCategoryInfo}
+         handleDelete={deleteCategoryInfo}
+         infoType="skillsInfo"
+       />
+
+      <CategoryInfo
+         data={formData.otherInfo}
+         handleSubmit={submitCategoryInfo}
+         handleDelete={deleteCategoryInfo}
+         infoType="otherInfo"
+       />
+
     </div>
   );
 }

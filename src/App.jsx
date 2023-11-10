@@ -100,6 +100,44 @@ function App() {
     }));
   };
 
+
+  const submitCategoryInfo = (e, type) => {
+    e.preventDefault();
+
+    const parentEl = e.target.closest('form');
+    console.log(parentEl)
+
+    const category = parentEl.querySelector('.form-input__item-category').value;
+    console.log(category)
+
+    const submittedItems = [
+      ...parentEl.querySelectorAll('.submitted-item__name'),
+    ].map((el) => ({ content: el.textContent, id: el.dataset.id }));
+
+    console.log(submittedItems)
+
+    if (!category) return;
+
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [type]: [
+        ...prevFormData[type],
+        {
+          category,
+          items: submittedItems,
+          id: uuidv4(),
+        },
+      ],
+    }));
+  };
+
+  const deleteCategoryInfo = (id, type) => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [type]: prevFormData[type].filter((item) => item.id !== id),
+    }));
+  };
+
   return (
     <>
     <Editor 
@@ -108,6 +146,8 @@ function App() {
     handleContactInfoChanges={handleContactInfoChanges}
     submitBackgroundInfo={submitBackgroundInfo}
     deleteBackgroundInfo={deleteBackgroundInfo}
+    submitCategoryInfo={submitCategoryInfo}
+    deleteCategoryInfo={deleteCategoryInfo}
     />
     </>
   )

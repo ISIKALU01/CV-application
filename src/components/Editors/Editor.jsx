@@ -52,7 +52,7 @@ function Editor(props) {
       <ExperienceInfo
          data={formData.experienceInfo}
          handleSubmit={submitBackgroundInfo} 
-         deleteEducInfo={deleteBackgroundInfo}
+         deleteExpInfo={deleteBackgroundInfo}
        />
 
       <CategoryInfo

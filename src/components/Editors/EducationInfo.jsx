@@ -162,7 +162,7 @@ function EducationInfo(props){
                 type="text"
                 name="degreeProgram"
                 className="form-input form-input__degree-program"
-                placeholder="Ph.D in Philosophy"
+                placeholder="Bsc in Political Science"
                 value={educInfo.degreeProgram}
                 onChange={handleChange}
                 required

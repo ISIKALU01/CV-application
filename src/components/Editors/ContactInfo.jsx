@@ -22,7 +22,7 @@ function ContactInfo(props){
               type="text"
               name="phoneNumber"
               className="form-input form-input__phone-number"
-              placeholder="081xxxxxxxxx"
+              placeholder="081-0000-0000"
               onChange={handleChange}
               value={data.phoneNumber}
             />
@@ -44,7 +44,7 @@ function ContactInfo(props){
               type="text"
               name="Website"
               className="form-input form-input__website"
-              placeholder="www.site.com"
+              placeholder="github.com"
               onChange={handleChange}
               value={data.website}
             />

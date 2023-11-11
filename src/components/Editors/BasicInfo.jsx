@@ -34,7 +34,7 @@ function BasicInfo(props) {
               type="text"
               name="occupation"
               className="form-input form-input__occupation"
-              placeholder="Business Manager"
+              placeholder="Front End Developer"
               onChange={handleChange}
               value={data.occupation}
             />

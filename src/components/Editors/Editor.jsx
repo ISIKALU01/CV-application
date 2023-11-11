@@ -24,13 +24,12 @@ function Editor(props) {
   return (
     <div className="editor">
       <header className="header">
-        <h1 className="header-title">cv generator</h1>
+        <h1 className="header-title">CV Builder</h1>
         <p className="header-description">
-          Create your CV by filling out the forms below! Your CV will be
-          dynamically updated in the preview.
+          Unleash your Full Potential
         </p>
-        <a className="header-github" href="" rel="noopener noreferrer">
-          Check out the Github repo for this project here
+        <a className="header-des2" href="" rel="noopener noreferrer">
+          Take Your career to New Heights with our CV Builder All-in-One-Platform.
         </a>
       </header>
 

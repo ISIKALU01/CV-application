@@ -32,19 +32,28 @@
       width: fit-content;
       height: 50px;
       margin-bottom: 10px;
-      background: linear-gradient(to left, #ef10a3, #5c10ef);
+      background: linear-gradient(to left, #ef10a3, #0853df);
       background-clip: content-box;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
   
       letter-spacing: -2px;
       font-size: 40px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-weight: 800;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-weight: 900;
+    }
+
+    &-description {
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-size: 52px;
+      line-height: normal;
+      font-weight: 400;
     }
   
-    &-github {
+    &-des2 {
       text-underline-offset: 2px;
+      font-size: 22px;
+      color: black;
     }
   }
 
@@ -67,18 +76,18 @@
         flex-direction: column;
         gap: 18px;
         margin-bottom: 30px;
+        margin-top: 10px;
       }
 
       &-title {
         padding-bottom: 8px;
         margin-bottom: 25px;
-        border-bottom: 2px solid green;
+        border-bottom: 2px solid rgb(10, 83, 192);
     
         font-size: 20px;
         font-family: Arial, Helvetica, sans-serif;
         
       }
-      
     
 
       &-label {

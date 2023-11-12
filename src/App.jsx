@@ -2,7 +2,10 @@ import { useEffect, useState } from 'react'
 import './sass/editor.scss'
 import './sass/components.scss'
 import './sass/banners.scss'
+
 import Editor from './components/Editors/Editor'
+import Preview from './components/preview/Preview';
+
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -139,7 +142,7 @@ function App() {
   };
 
   return (
-    <>
+    <div className='App'>
     <Editor 
     formData={formData} 
     handleBasicInfoChanges={handleBasicInfoChanges}
@@ -149,7 +152,8 @@ function App() {
     submitCategoryInfo={submitCategoryInfo}
     deleteCategoryInfo={deleteCategoryInfo}
     />
-    </>
+    <Preview formData={formData} />
+    </div>
   )
 }
 

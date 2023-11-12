@@ -160,5 +160,13 @@ body {
     font-size: var(--text-sm);
     color: var(--color-text);
   }
+
+  .App {
+    position: relative;
+    place-self: center;
+  
+    display: flex;
+    flex-direction: row;
+  }
   
  

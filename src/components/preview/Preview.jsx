@@ -1,6 +1,7 @@
 import BasicInfoView from './BasicInfoView';
 import ContactInfoView from './ContactInfoView';
 import EducationInfoView from './EducationInfoView';
+import ExperienceInfoView from './ExperienceInfoView';
 
 
 function Preview(props) {
@@ -14,7 +15,7 @@ function Preview(props) {
 
         <section className="preview__main-col">
           <EducationInfoView data={formData.educationInfo} />
-          {/* <ExperienceInfoView data={formData.experienceInfo} /> */}
+          <ExperienceInfoView data={formData.experienceInfo} />
         </section>
 
       </main>

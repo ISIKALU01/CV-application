@@ -1,7 +1,9 @@
+import format from 'date-fns/format';
+
 function EducationInfoView(props) {
   const { data } = props;
 
-  
+  const formatDate = (str) => format(new Date(str), 'MMM yyyy');
 
   const educInfoPreviewMarkup = data.map((item) => (
     <div className="preview-unit__educ-info" key={item.id}>
@@ -11,8 +13,8 @@ function EducationInfoView(props) {
           <h2 className="preview__degree-program">{item.degreeProgram}</h2>
         </div>
         <span className="preview__active-years">
-          {item.startingYear}-
-          {!item.graduatingYear ? 'present' : (item.graduatingYear)}
+          {formatDate(item.startingYear)}-
+          {!item.graduatingYear ? 'present' : formatDate(item.graduatingYear)}
         </span>
       </div>
       {item.gpa && <p className="preview__gpa">GPA: {item.gpa}</p>}

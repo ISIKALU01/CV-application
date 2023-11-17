@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './sass/editor.scss'
 import './sass/components.scss'
 import './sass/banners.scss'
+import './sass/preview.scss'
 
 import Editor from './components/Editors/Editor'
 import Preview from './components/preview/Preview';

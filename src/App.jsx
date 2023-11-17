@@ -8,6 +8,7 @@ import Editor from './components/Editors/Editor'
 import Preview from './components/preview/Preview';
 
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import PrintIcon from '@mui/icons-material/Print';
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -44,6 +45,10 @@ function App() {
 
   const togglePreview = () => {
     setPreviewVisibility((prevState) => !prevState);
+  };
+
+  const printPreview = () => {
+    window.print();
   };
 
 
@@ -170,8 +175,20 @@ function App() {
         >
           <VisibilityIcon />
         </button>
+        
+        {previewVisible && (
+          <button
+            type="button"
+            className="btn__print-preview"
+            onClick={printPreview}
+          >
+            <PrintIcon />
+          </button>
+        )}
         </div>
     </div>
+
+    
   )
 }
 

@@ -7,6 +7,8 @@ import './sass/preview.scss'
 import Editor from './components/Editors/Editor'
 import Preview from './components/preview/Preview';
 
+import VisibilityIcon from '@mui/icons-material/Visibility';
+
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -39,6 +41,10 @@ function App() {
   useEffect(() => {
     localStorage.setItem('cvFormData', JSON.stringify(formData));
   }, [formData]);
+
+  const togglePreview = () => {
+    setPreviewVisibility((prevState) => !prevState);
+  };
 
 
   console.log(formData)
@@ -155,7 +161,16 @@ function App() {
     submitCategoryInfo={submitCategoryInfo}
     deleteCategoryInfo={deleteCategoryInfo}
     />
-    <Preview formData={formData} />
+    {previewVisible && <Preview formData={formData} />}
+      <div className="btn-container__preview">
+        <button
+          className="btn__toggle-preview"
+          type="button"
+          onClick={togglePreview}
+        >
+          <VisibilityIcon />
+        </button>
+        </div>
     </div>
   )
 }

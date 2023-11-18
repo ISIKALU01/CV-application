@@ -79,3 +79,21 @@
 }
 
 
+@media print {
+    .editor {
+      display: none;
+    }
+  
+    .preview__container {
+      background-color: white;
+    }
+  
+    .preview__printable {
+      display: grid;
+      box-shadow: none;
+    }
+  
+    .btn-container__preview {
+      display: none;
+    }
+  }

@@ -53,6 +53,19 @@
 }
 
 @media screen and (max-width: 460px) {
+  .header-description {
+    font-size: 40px;
+    font-weight: 300;
+  }
+
+  .header-des2 {
+    font-size: 12px;
+    padding-right: 10px;
+    line-height: 19px;
+  }
+
+ 
+
   .preview__printable {
     transform: scale(0.65);
   }
@@ -69,7 +82,7 @@
   }
 
   .btn__submit-item {
-    left: auto;
+    // left: auto;
     right: 10px;
   }
 }
@@ -97,7 +110,6 @@
   
     .btn-container__preview {
       display: none;
-      margin: 10px;
     }
 
   }

@@ -1,3 +1,5 @@
+@use 'base';
+
 @media screen and (max-width: 1050px) {
   .App {
     flex-direction: column;
@@ -67,6 +69,7 @@
   }
 
   .btn__submit-item {
+    left: auto;
     right: 10px;
   }
 }
@@ -94,5 +97,7 @@
   
     .btn-container__preview {
       display: none;
+      margin: 10px;
     }
+
   }

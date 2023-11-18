@@ -29,6 +29,12 @@
     font-size: var(--text-md);
   }
 
+  .form {
+    --text-margin-left: 0px;
+
+    margin-block: 50px;
+  }
+
   .preview__container {
     margin-top: 50px;
     width: 100%;
@@ -63,8 +69,6 @@
     padding-right: 10px;
     line-height: 19px;
   }
-
- 
 
   .preview__printable {
     transform: scale(0.65);

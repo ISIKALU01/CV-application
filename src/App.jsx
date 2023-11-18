@@ -38,6 +38,7 @@ function App() {
   );
 
   const [previewVisible, setPreviewVisibility] = useState(true);
+ 
 
   useEffect(() => {
     localStorage.setItem('cvFormData', JSON.stringify(formData));
@@ -46,6 +47,7 @@ function App() {
   const togglePreview = () => {
     setPreviewVisibility((prevState) => !prevState);
   };
+
 
   const printPreview = () => {
     window.print();

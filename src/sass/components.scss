@@ -150,4 +150,26 @@
   
 
 
-  
+  @media print {
+    .editor {
+      display: none;
+    }
+
+    .btn-container__preview {
+      display: none;
+    }
+
+    .btn__print-preview {
+      display: none;
+    }
+
+    .preview__container{
+      width: auto;
+    }
+
+    .preview__printable {
+      width: auto;
+      border: none;
+      padding: none;
+    }
+  }

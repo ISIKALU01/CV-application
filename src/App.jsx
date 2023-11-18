@@ -54,20 +54,14 @@ function App() {
   };
 
 
-  console.log(formData)
-
-
   const handleBasicInfoChanges = (e) => {
     const { name, value } = e.target;
-    // console.log(e.target)
 
-    setFormData({...formData, basicInfo:{...formData.basicInfo, [name]: value}})
-    /*
     setFormData((prevFormData) => ({
       ...prevFormData,
       basicInfo: { ...prevFormData.basicInfo, [name]: value }
     }));
-    */
+  
   };
 
   const handleContactInfoChanges = (e) => {
@@ -85,15 +79,12 @@ function App() {
     e.preventDefault();
 
     const parentEl = e.target.closest('form');
-    console.log(parentEl)
 
     const newInfo = [...parentEl.querySelectorAll('input')]
       .map((field) => ({
         [field.name]: field.value,
       }))
       .reduce((obj, item) => Object.assign(obj, { ...item }));
-
-    console.log(newInfo)
 
     const addlInfo = [
       ...parentEl.querySelectorAll('.submitted-item__name'),
@@ -124,16 +115,13 @@ function App() {
     e.preventDefault();
 
     const parentEl = e.target.closest('form');
-    console.log(parentEl)
 
     const category = parentEl.querySelector('.form-input__item-category').value;
-    console.log(category)
-
+ 
     const submittedItems = [
       ...parentEl.querySelectorAll('.submitted-item__name'),
     ].map((el) => ({ content: el.textContent, id: el.dataset.id }));
 
-    console.log(submittedItems)
 
     if (!category) return;
 

@@ -29,7 +29,6 @@ function EducationInfo(props){
       JSON.parse(localStorage.getItem('cvEducationInfo')) || emptyState,
     );
 
-    console.log(data.length)
 
     useEffect(() => {
         localStorage.setItem('cvEducationInfo', JSON.stringify(educInfo));
@@ -78,9 +77,6 @@ function EducationInfo(props){
       } else if (e.key === 'Enter') infoContent = e.target.value;
   
       if (!infoContent) return;
-
-      console.log(infoContent)
-      console.log(educInfo)
   
   
       setEducInfo((prevInfo) => ({

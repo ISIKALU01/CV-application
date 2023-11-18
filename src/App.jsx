@@ -16,7 +16,7 @@ import { v4 as uuidv4 } from 'uuid';
 function App() {
 
   const [formData, setFormData] = useState(
-    JSON.parse(localStorage.getItem('cvFormData')) ||{
+    JSON.parse(localStorage.getItem('cvFormData')) || {
       basicInfo: {
         firstName: '',
         lastName: '',
@@ -61,7 +61,7 @@ function App() {
       ...prevFormData,
       basicInfo: { ...prevFormData.basicInfo, [name]: value }
     }));
-  
+
   };
 
   const handleContactInfoChanges = (e) => {

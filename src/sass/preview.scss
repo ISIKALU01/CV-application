@@ -52,7 +52,7 @@
       margin-bottom: 12px;
       border-bottom: 1.2px solid var(--color-accent-1);
   
-      font-family: var(--font-montserrat);
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
       font-size: 12.5px;
       font-weight: bold;
       text-transform: uppercase;
@@ -134,8 +134,8 @@
       .preview__institution,
       .preview__job-title {
         font-size: 15.5px;
-        font-weight: bold;
-        font-family: var(--font-montserrat);
+        font-weight: lighter;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
       }
   
       .preview__degree-program,
@@ -192,8 +192,8 @@
   
       .preview__skill-category {
         font-size: 13.75px;
-        font-weight: bold;
-        font-family: var(--font-montserrat);
+        font-weight: lighter;
+        font-family: var(--font-raleway);
       }
   
       .preview__skill-item {
